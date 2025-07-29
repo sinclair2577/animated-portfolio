@@ -81,8 +81,8 @@ const AboutPage = () => {
             <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
             <p className="text-lg">
               I am Liu Yuhao (Sinclair), a passionate front-end developer with a
-              full-time master's degree in software engineering, specializing in
-              modern front-end technology stacks such as React, Next.js, and
+              full-time master&#39s degree in software engineering, specializing
+              in modern front-end technology stacks such as React, Next.js, and
               TypeScript. I have extensive hands-on experience in responsive
               design, performance optimization, and user experience design, and
               am capable of independently handling the entire development

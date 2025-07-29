@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import matter from "gray-matter";
 import Image from "next/image";
