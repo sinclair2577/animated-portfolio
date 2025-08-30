@@ -1,14 +1,51 @@
 # 项目功能设计与开发规划
 
-## 1. 博客文章系统
+## 项目结构
 
-- 拉取本地 md 文件展示
-- 支持 Markdown 格式的文章编辑与展示。
-- 结合 Notion API，实现文章内容的第三方同步与管理。
-- 前台页面展示博客列表与详情，支持标签、分类等扩展。
+```
+|-- next-animated-portfolio
+    |-- src
+            |-- app
+            |   |-- favicon.ico
+            |   |-- globals.css
+            |   |-- layout.js
+            |   |-- page.jsx
+            |   |-- about
+            |   |   |-- page.jsx
+            |   |-- api
+            |   |   |-- spotify
+            |   |       |-- search
+            |   |       |   |-- route.js
+            |   |       |-- token
+            |   |           |-- route.js
+            |   |-- blog
+            |   |   |-- page.jsx
+            |   |-- contact
+            |   |   |-- page.jsx
+            |   |-- portfolio
+            |   |   |-- page.jsx
+            |   |-- test
+            |       |-- page.jsx
+            |       |-- motiontest
+            |           |-- page.jsx
+            |-- components
+            |   |-- brain.jsx
+            |   |-- model.jsx
+            |   |-- musicPlayer.jsx
+            |   |-- navbar.jsx
+            |   |-- navLink.jsx
+            |   |-- transitionProvider.jsx
+            |   |-- ui
+            |       |-- progress.jsx
+            |       |-- slider.jsx
+            |-- hooks
+            |-- lib
+            |   |-- utils.js
+            |-- services
+                |-- http.js
+                |-- spotify.js
+```
 
-## 2. 后台数据管理
+## 技术栈
 
-- 管理博客文章、分类、标签等内容。
-- 后台采用 MongoDB 作为主要数据库，支持内容的增删改查。
-- 后续可扩展为多用户协作、权限管理等。
+Axios异步请求库

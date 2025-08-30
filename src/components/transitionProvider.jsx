@@ -4,22 +4,24 @@ import Navbar from "./navbar";
 import { AnimatePresence, motion } from "motion/react";
 import { usePathname } from "next/navigation";
 
+// 动画布局
 const TransitionProvider = ({ children }) => {
   const pathName = usePathname();
   return (
     <AnimatePresence mode="wait">
-      <div
-        key={pathName}
-        className="w-screen h-full bg-gradient-to-b from-blue-100 to-red-100"
-      >
+      <motion.div layout transition={{
+        duration: 2
+      }} key={pathName} className="relative min-h-screen w-full">
+        {/* 固定背景渐变 */}
+        <div className="fixed inset-0 bg-gradient-to-b from-blue-100 to-red-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 transition-colors duration-700"></div>
         <motion.div
-          className="h-screen w-screen fixed bg-black rounded-b-[100px] z-40"
+          className="fixed z-40 h-screen w-full rounded-b-[100px] bg-black"
           animate={{ height: "0vh" }}
           exit={{ height: "140vh" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
         ></motion.div>
         <motion.div
-          className="fixed m-auto top-0 bottom-0 left-0 right-0 text-white text-8xl cursor-default z-50 w-fit h-fit"
+          className="fixed bottom-0 left-0 right-0 top-0 z-50 m-auto h-fit w-fit cursor-default text-8xl text-white"
           initial={{ opacity: 1 }}
           animate={{ opacity: 0 }}
           exit={{ opacity: 0 }}
@@ -28,15 +30,21 @@ const TransitionProvider = ({ children }) => {
           {pathName.substring(1)}
         </motion.div>
         <motion.div
-          className="h-screen w-screen fixed bg-black rounded-t-[100px] z-30 bottom-0"
+          className="fixed bottom-0 z-30 h-screen w-full rounded-t-[100px] bg-black"
           initial={{ height: "140vh" }}
           animate={{ height: "0vh", transition: { delay: 0.5 } }}
         ></motion.div>
-        <div className="h-24">
+        {/* 导航栏 */}
+        <div className="relative z-10 h-24">
           <Navbar />
         </div>
-        <div className="h-[calc(100vh-6rem)]">{children}</div>
-      </div>
+        {/* 内容 */}
+        <motion.div
+          className="relative z-10 "
+        >
+          {children}
+        </motion.div>
+      </motion.div>
     </AnimatePresence>
   );
 };
