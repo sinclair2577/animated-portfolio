@@ -130,7 +130,17 @@ const Navbar = () => {
       </div>
 
       {/* Responsive Menu */}
-      <div className="md:hidden">
+      <div className="md:hidden flex w-25 gap-5">
+        {/* Theme Change */}
+        <Button className={` w-8 h-8 p-1 items-center rounded-2xl  flex relative focus:outline-none ${theme == 'light' ? 'justify-start' : 'justify-end'}`} onClick={handleThemeChange}>
+          <motion.div layout className="w-7 h-7  rounded-full flex items-center justify-center " transition={{
+            type: "spring",
+            visualDuration: 0.2,
+            bounce: 0.2,
+          }}>
+            {theme == 'light' ? <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all  dark:scale-0 dark:-rotate-90" /> : <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />}
+          </motion.div>
+        </Button>
         {/* Menu Button */}
         <button
           className="w-10 h-8 flex flex-col justify-between z-50 relative"
@@ -139,17 +149,17 @@ const Navbar = () => {
           <motion.div
             variants={topVariants}
             animate={open ? "opened" : "closed"}
-            className="w-10 h-1 rounded bg-black origin-right"
+            className="w-10 h-1 rounded bg-black dark:bg-white origin-right"
           ></motion.div>
           <motion.div
             variants={centerVariants}
             animate={open ? "opened" : "closed"}
-            className="w-10 h-1 rounded bg-black"
+            className="w-10 h-1 rounded bg-black dark:bg-white"
           ></motion.div>
           <motion.div
             variants={bottomVariants}
             animate={open ? "opened" : "closed"}
-            className="w-10 h-1 rounded bg-black origin-right"
+            className="w-10 h-1 rounded bg-black dark:bg-white origin-right"
           ></motion.div>
         </button>
         {/* Menu list */}
@@ -161,7 +171,7 @@ const Navbar = () => {
             className="absolute top-0 left-0 w-full h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-3xl z-40"
           >
             {links.map((link) => (
-              <motion.div variants={listItemVariants} key={link.title}>
+              <motion.div variants={listItemVariants} key={link.title} className="cursor-pointer">
                 <Link href={link.url}>{link.title}</Link>
               </motion.div>
             ))}

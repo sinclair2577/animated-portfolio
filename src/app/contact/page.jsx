@@ -42,7 +42,7 @@ const ContactPage = () => {
     >
       <div className="h-full flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
         {/* TEXT CONTAINER */}
-        <div className="h-1/2 lg:h-[calc(100vh-6rem)] lg:w-1/2 flex items-center justify-center text-6xl">
+        <div className="h-1/3 lg:h-[calc(100vh-6rem)] lg:w-1/2 flex items-center justify-center text-6xl">
           <div>
             {text.split("").map((letter, index) => (
               <motion.span
@@ -65,19 +65,21 @@ const ContactPage = () => {
         <form
           onSubmit={sendEmail}
           ref={form}
-          className="h-1/2 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24 dark:text-white dark:bg-red-900/50"
+          className="h-2/3 lg:h-full lg:w-1/2 bg-red-50 rounded-xl text-xl flex flex-col gap-8 justify-center p-24 dark:text-white dark:bg-red-900/50"
         >
           <span>Dear Sinclair,</span>
           <textarea
             rows={6}
-            className="bg-transparent border-b-2 border-b-black outline-none resize-none"
+            className="bg-transparent border-b-2 border-b-black outline-none resize-none min-h-[80px]"
             name="user_message"
+            placeholder="Type your message here..."
           />
           <span>My mail address is:</span>
           <input
             name="user_email"
-            type="text"
-            className="bg-transparent border-b-2 border-b-black outline-none"
+            type="email"
+            placeholder="your.email@example.com"
+            className="bg-transparent border-b-2 py-2 border-b-black outline-none"
           />
           <span>Regards</span>
           <button className="bg-purple-200 rounded font-semibold text-gray-600 p-4">
