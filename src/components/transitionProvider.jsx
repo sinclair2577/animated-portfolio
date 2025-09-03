@@ -3,6 +3,7 @@
 import Navbar from "./navbar";
 import { AnimatePresence, motion } from "motion/react";
 import { usePathname } from "next/navigation";
+import MusicPlayer from '@/components/musicPlayer'
 
 // 动画布局
 const TransitionProvider = ({ children }) => {
@@ -46,6 +47,7 @@ const TransitionProvider = ({ children }) => {
         </motion.div>
       </motion.div>
     </AnimatePresence>
+
   );
 };
 

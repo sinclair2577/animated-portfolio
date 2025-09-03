@@ -2,7 +2,6 @@
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import { useEffect } from "react";
 import axios from "axios";
 import { CldImage } from 'next-cloudinary'
 import { getCldImageUrl } from 'next-cloudinary';
