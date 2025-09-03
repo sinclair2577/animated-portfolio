@@ -11,14 +11,18 @@ import {
 } from "react-icons/ri";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button"
-import { Moon, Sun } from "lucide-react"
+import { Moon, Sun, Music } from "lucide-react"
 import { usePathname } from 'next/navigation'
 import { links } from '@/router/index'
+import MusicPlayer from "./musicPlayer";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const { theme, setTheme } = useTheme()
   const pathName = usePathname();
+
+  // 控制音乐播放器展开与折叠内容
+  const [isHovered, setIsHovered] = useState(false);
 
   const topVariants = {
     closed: {
@@ -118,6 +122,23 @@ const Navbar = () => {
         <Link href="https://x.com/liyho197936">
           <RiTwitterFill />
         </Link>
+        <div >
+          <Button
+            className="w-8 h-8 p-1 items-center rounded-2xl flex relative focus:outline-none"
+          >
+            <motion.div
+              transition={{
+                type: "spring",
+                visualDuration: 0.2,
+                bounce: 0.2,
+              }}
+              onClick={() => setIsHovered(!isHovered)}
+            >
+              <Music className="w-7 h-7 p-1 items-center scale-100 rotate-0 transition-all" />
+            </motion.div>
+          </Button>
+          <MusicPlayer isHovered={isHovered} />
+        </div>
         <Button className={` w-16 h-8 p-1 items-center rounded-2xl  flex relative focus:outline-none ${theme == 'light' ? 'justify-start' : 'justify-end'}`} onClick={handleThemeChange}>
           <motion.div layout className="w-7 h-7  rounded-full flex items-center justify-center " transition={{
             type: "spring",
@@ -130,7 +151,24 @@ const Navbar = () => {
       </div>
 
       {/* Responsive Menu */}
-      <div className="md:hidden flex w-25 gap-5">
+      <div className="md:hidden flex w-25 gap-5 relative">
+        <div>
+          <Button
+            className="w-8 h-8 p-1 items-center rounded-2xl flex relative focus:outline-none"
+          >
+            <motion.div
+              transition={{
+                type: "spring",
+                visualDuration: 0.2,
+                bounce: 0.2,
+              }}
+              onClick={() => setIsHovered(!isHovered)}
+            >
+              <Music className="w-7 h-7 p-1 items-center scale-100 rotate-0 transition-all" />
+            </motion.div>
+          </Button>
+          <MusicPlayer isHovered={isHovered} />
+        </div>
         {/* Theme Change */}
         <Button className={` w-8 h-8 p-1 items-center rounded-2xl  flex relative focus:outline-none ${theme == 'light' ? 'justify-start' : 'justify-end'}`} onClick={handleThemeChange}>
           <motion.div layout className="w-7 h-7  rounded-full flex items-center justify-center " transition={{

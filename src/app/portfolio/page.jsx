@@ -8,17 +8,17 @@ const portfolios = [
     id: 1,
     color: "from-red-300 to-blue-300",
     darkColor: "dark:from-red-900/90 dark:to-blue-900/90",
-    title: "React Commerce",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
-    img: "https://images.pexels.com/photos/18073372/pexels-photo-18073372/free-photo-of-young-man-sitting-in-a-car-on-a-night-street.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    link: "https://lama.dev",
+    title: "sinc-cli",
+    desc: "Based on personal IP custom scaffolding, configure the entire process of Web front-end from development to deployment, mainly using vite, nextjs, and vue for project construction.",
+    img: "https://res.cloudinary.com/da6nwaqba/image/upload/v1756625617/project_glkhdw.png",
+    link: "https://github.com/sinclair2577/si-cli",
   },
   {
     id: 2,
     color: "from-blue-300 to-violet-300",
     darkColor: "dark:from-blue-900/90 dark:to-violet-900/90",
-    title: "Next.js Medium Blog",
-    desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ab id ad nesciunt quo aut corporis modi? Voluptate, quos sunt dolorum facilis, id eum sequi placeat accusantium saepe eos laborum.",
+    title: "platform large screen",
+    desc: "This project is dedicated to developing a multi-source information fusion integrated safety monitoring and control platform for typical coastal city engineering clusters. The platform innovatively adopts a cloud- edge - end collaborative technology architecture, deeply integrating IoT sensor data, BIM (Building Information Modeling), and GIS (Geographic Information System), to build a comprehensive solution that integrates data access, management, intelligent analysis, and visualization. By establishing standardized monitoring target models and data models, the system achieves unified data management throughout the entire life cycle of key structures such as foundation pits and tunnels.",
     img: "https://images.pexels.com/photos/18023772/pexels-photo-18023772/free-photo-of-close-up-of-a-person-holding-a-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
     link: "https://lama.dev",
   },
@@ -74,7 +74,7 @@ const PortfolioPage = () => {
                   <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
                     <Image src={item.img} alt="" fill />
                   </div>
-                  <p className="w-80 md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]">
+                  <p className="w-80 h-[140px] text-ellipsis overflow-hidden md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]">
                     {item.desc}
                   </p>
                   <Link href={item.link} className="flex justify-end">
