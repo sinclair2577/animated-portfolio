@@ -84,16 +84,20 @@ const Navbar = () => {
     })
   }
 
+  const handleClickNavLink = () => {
+    setIsHovered(false)
+  }
+
   return (
     <div className="w-full h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-24 text-xl ">
       {/* Links */}
       <div className="hidden md:flex gap-4 w-1/3">
         {links.map((link) => (
-          <Link href={link.url} className={`rounded p-1 ${pathName == link.url && 'bg-black text-white dark:bg-white dark:text-black'}`} key={link.title}> {link.title}</ Link>
+          <Link href={link.url} className={`rounded p-1 ${pathName == link.url && 'bg-black text-white dark:bg-white dark:text-black'}`} key={link.title} onClick={handleClickNavLink}> {link.title}</ Link>
         ))}
       </div>
       {/* LOGO */}
-      <div className="md:hidden lg:flex w-1/3 justify-center">
+      <div className="md:hidden lg:flex w-1/4 justify-center">
         <Link
           href="/"
           className="bg-black dark:bg-white text-sm font-semibold rounded-md p-1 flex justify-center items-center"
@@ -122,100 +126,81 @@ const Navbar = () => {
         <Link href="https://x.com/liyho197936">
           <RiTwitterFill />
         </Link>
-        <div >
-          <Button
-            className="w-8 h-8 p-1 items-center rounded-2xl flex relative focus:outline-none"
-          >
-            <motion.div
-              transition={{
-                type: "spring",
-                visualDuration: 0.2,
-                bounce: 0.2,
-              }}
-              onClick={() => setIsHovered(!isHovered)}
+
+      </div>
+      <div className="flex relative">
+        {/* Extra Content */}
+        <div className="flex relative gap-2 mx-5">
+          <div className="">
+            <Button
+              className="w-8 h-8 p-1 items-center rounded-2xl flex relative focus:outline-none"
             >
-              <Music className="w-7 h-7 p-1 items-center scale-100 rotate-0 transition-all" />
+              <motion.div
+                transition={{
+                  type: "spring",
+                  visualDuration: 0.2,
+                  bounce: 0.2,
+                }}
+                onClick={() => setIsHovered(!isHovered)}
+              >
+                <Music className="w-7 h-7 p-1 items-center scale-100 rotate-0 transition-all" />
+              </motion.div>
+            </Button>
+            <MusicPlayer isHovered={isHovered} />
+          </div>
+          <Button className={` w-16 h-8 p-1 items-center rounded-2xl  flex relative focus:outline-none ${theme == 'light' ? 'justify-start' : 'justify-end'}`} onClick={handleThemeChange}>
+            <motion.div layout className="w-7 h-7  rounded-full flex items-center justify-center " transition={{
+              type: "spring",
+              visualDuration: 0.2,
+              bounce: 0.2,
+            }}>
+              {theme == 'light' ? <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all  dark:scale-0 dark:-rotate-90" /> : <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />}
             </motion.div>
           </Button>
-          <MusicPlayer isHovered={isHovered} />
         </div>
-        <Button className={` w-16 h-8 p-1 items-center rounded-2xl  flex relative focus:outline-none ${theme == 'light' ? 'justify-start' : 'justify-end'}`} onClick={handleThemeChange}>
-          <motion.div layout className="w-7 h-7  rounded-full flex items-center justify-center " transition={{
-            type: "spring",
-            visualDuration: 0.2,
-            bounce: 0.2,
-          }}>
-            {theme == 'light' ? <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all  dark:scale-0 dark:-rotate-90" /> : <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />}
-          </motion.div>
-        </Button>
+
+
+        {/* Responsive Menu */}
+        <div className="md:hidden flex w-25 gap-5 relative">
+          {/* Menu Button */}
+          <button
+            className="w-10 h-8 flex flex-col justify-between z-50 relative"
+            onClick={() => setOpen((prev) => !prev)}
+          >
+            <motion.div
+              variants={topVariants}
+              animate={open ? "opened" : "closed"}
+              className="w-10 h-1 rounded bg-black dark:bg-white origin-right"
+            ></motion.div>
+            <motion.div
+              variants={centerVariants}
+              animate={open ? "opened" : "closed"}
+              className="w-10 h-1 rounded bg-black dark:bg-white"
+            ></motion.div>
+            <motion.div
+              variants={bottomVariants}
+              animate={open ? "opened" : "closed"}
+              className="w-10 h-1 rounded bg-black dark:bg-white origin-right"
+            ></motion.div>
+          </button>
+          {/* Menu list */}
+          {open && (
+            <motion.div
+              variants={listVariants}
+              initial="closed"
+              animate="opened"
+              className="absolute top-0 left-0 w-full h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-3xl z-40"
+            >
+              {links.map((link) => (
+                <motion.div variants={listItemVariants} key={link.title} className="cursor-pointer">
+                  <Link href={link.url}>{link.title}</Link>
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
+        </div>
       </div>
 
-      {/* Responsive Menu */}
-      <div className="md:hidden flex w-25 gap-5 relative">
-        <div>
-          <Button
-            className="w-8 h-8 p-1 items-center rounded-2xl flex relative focus:outline-none"
-          >
-            <motion.div
-              transition={{
-                type: "spring",
-                visualDuration: 0.2,
-                bounce: 0.2,
-              }}
-              onClick={() => setIsHovered(!isHovered)}
-            >
-              <Music className="w-7 h-7 p-1 items-center scale-100 rotate-0 transition-all" />
-            </motion.div>
-          </Button>
-          <MusicPlayer isHovered={isHovered} />
-        </div>
-        {/* Theme Change */}
-        <Button className={` w-8 h-8 p-1 items-center rounded-2xl  flex relative focus:outline-none ${theme == 'light' ? 'justify-start' : 'justify-end'}`} onClick={handleThemeChange}>
-          <motion.div layout className="w-7 h-7  rounded-full flex items-center justify-center " transition={{
-            type: "spring",
-            visualDuration: 0.2,
-            bounce: 0.2,
-          }}>
-            {theme == 'light' ? <Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all  dark:scale-0 dark:-rotate-90" /> : <Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0" />}
-          </motion.div>
-        </Button>
-        {/* Menu Button */}
-        <button
-          className="w-10 h-8 flex flex-col justify-between z-50 relative"
-          onClick={() => setOpen((prev) => !prev)}
-        >
-          <motion.div
-            variants={topVariants}
-            animate={open ? "opened" : "closed"}
-            className="w-10 h-1 rounded bg-black dark:bg-white origin-right"
-          ></motion.div>
-          <motion.div
-            variants={centerVariants}
-            animate={open ? "opened" : "closed"}
-            className="w-10 h-1 rounded bg-black dark:bg-white"
-          ></motion.div>
-          <motion.div
-            variants={bottomVariants}
-            animate={open ? "opened" : "closed"}
-            className="w-10 h-1 rounded bg-black dark:bg-white origin-right"
-          ></motion.div>
-        </button>
-        {/* Menu list */}
-        {open && (
-          <motion.div
-            variants={listVariants}
-            initial="closed"
-            animate="opened"
-            className="absolute top-0 left-0 w-full h-screen bg-black text-white flex flex-col items-center justify-center gap-8 text-3xl z-40"
-          >
-            {links.map((link) => (
-              <motion.div variants={listItemVariants} key={link.title} className="cursor-pointer">
-                <Link href={link.url}>{link.title}</Link>
-              </motion.div>
-            ))}
-          </motion.div>
-        )}
-      </div>
     </div>
   );
 };
