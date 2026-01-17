@@ -21,8 +21,7 @@ export const musics = [
   {
     title: "Come Around Me",
     artists: "Justin Bieber",
-    coverUrl:
-      "https://res.cloudinary.com/da6nwaqba/image/upload/v1756519236/come_around_me_xjaqil.jpg",
+    coverUrl: "/asserts/img/music-come_around_me.jpg",
     externalUrl:
       "https://res.cloudinary.com/da6nwaqba/video/upload/v1756517455/M5000049uTDV38OVBG_hhfq2q.mp3",
     createdAt: new Date(),
@@ -30,8 +29,7 @@ export const musics = [
   {
     title: "Love Song",
     artists: "方大同",
-    coverUrl:
-      "https://res.cloudinary.com/da6nwaqba/image/upload/v1756519236/love_song_ragrgd.jpg",
+    coverUrl: "/asserts/img/music-love_song.jpg",
     externalUrl:
       "https://res.cloudinary.com/da6nwaqba/video/upload/v1756517944/M500004bMWSV4F4x85_i37ajb.mp3",
     createdAt: new Date(),
@@ -39,8 +37,7 @@ export const musics = [
   {
     title: "Dead man",
     artists: "蔡徐坤",
-    coverUrl:
-      "https://res.cloudinary.com/da6nwaqba/image/upload/v1756519236/dead_man_d1nams.jpg",
+    coverUrl: "/asserts/img/music-dead_man",
     externalUrl:
       "https://res.cloudinary.com/da6nwaqba/video/upload/v1756517946/M500003kF8xn0K54o2_r0qqde.mp3",
     createdAt: new Date(),

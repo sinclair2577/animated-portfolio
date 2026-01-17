@@ -10,7 +10,7 @@ const portfolios = [
     darkColor: "dark:from-red-900/90 dark:to-blue-900/90",
     title: "sinc-cli",
     desc: "Based on personal IP custom scaffolding, configure the entire process of Web front-end from development to deployment, mainly using vite, nextjs, and vue for project construction.",
-    img: "https://res.cloudinary.com/da6nwaqba/image/upload/v1756625617/project_glkhdw.png",
+    img: "/asserts/img/si-cli-screenshot.png",
     link: "https://github.com/sinclair2577/si-cli",
   },
   {
@@ -19,7 +19,7 @@ const portfolios = [
     darkColor: "dark:from-blue-900/90 dark:to-violet-900/90",
     title: "platform large screen",
     desc: "This project is dedicated to developing a multi-source information fusion integrated safety monitoring and control platform for typical coastal city engineering clusters. The platform innovatively adopts a cloud- edge - end collaborative technology architecture, deeply integrating IoT sensor data, BIM (Building Information Modeling), and GIS (Geographic Information System), to build a comprehensive solution that integrates data access, management, intelligent analysis, and visualization. By establishing standardized monitoring target models and data models, the system achieves unified data management throughout the entire life cycle of key structures such as foundation pits and tunnels.",
-    img: "https://images.pexels.com/photos/18023772/pexels-photo-18023772/free-photo-of-close-up-of-a-person-holding-a-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
+    img: "/asserts/img/platform-large-screenshot.png",
     link: "https://lama.dev",
   },
   {
@@ -67,22 +67,91 @@ const PortfolioPage = () => {
                 className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color} ${item.darkColor}`}
                 key={item.id}
               >
-                <div className="flex flex-col gap-8 text-white">
-                  <h1 className="text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">
+                <motion.div
+                  className="flex flex-col gap-8 text-white"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <motion.h1
+                    className="text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    whileHover={{
+                      scale: 1.05,
+                      textShadow: "0 0 20px rgba(255, 255, 255, 0.8)"
+                    }}
+                  >
                     {item.title}
-                  </h1>
-                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
-                    <Image src={item.img} alt="" fill />
+                  </motion.h1>
+
+                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px] overflow-hidden rounded-lg shadow-2xl">
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0"
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.4 }}
+                    />
+                    <motion.div
+                      className="absolute inset-0 border-4 border-white opacity-0"
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.4 }}
+                    />
+                    <motion.div
+                      className="absolute -inset-2 bg-white opacity-0 blur-sm"
+                      whileHover={{ opacity: 0.3 }}
+                      transition={{ duration: 0.4 }}
+                    />
+                    <motion.div
+                      className="relative z-10 w-full h-full"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                    >
+                      <Image
+                        src={item.img}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </motion.div>
                   </div>
-                  <p className="w-80 h-[140px] text-ellipsis overflow-hidden md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]">
+
+                  <motion.p
+                    className="w-80 h-[140px] text-ellipsis overflow-hidden md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]"
+                    initial={{ opacity: 0.7, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    whileHover={{
+                      opacity: 1,
+                      height: "auto",
+                      y: 0,
+                      transition: { duration: 0.4 }
+                    }}
+                  >
                     {item.desc}
-                  </p>
+                  </motion.p>
+
                   <Link href={item.link} className="flex justify-end">
-                    <button className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 dark:bg-gray-800 dark:text-white font-semibold m-4 rounded">
-                      See Demo
-                    </button>
+                    <motion.button
+                      className="p-2 text-sm md:p-4 md:text-md lg:p-8 lg:text-lg bg-white text-gray-600 dark:bg-gray-800 dark:text-white font-semibold m-4 rounded shadow-lg"
+                      whileHover={{
+                        scale: 1.1,
+                        backgroundColor: "#ff6b6b",
+                        color: "white",
+                        x: -10,
+                        boxShadow: "0 10px 30px rgba(255, 107, 107, 0.5)"
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <motion.span
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        See Demo →
+                      </motion.span>
+                    </motion.button>
                   </Link>
-                </div>
+                </motion.div>
               </div>
             ))}
           </motion.div>
