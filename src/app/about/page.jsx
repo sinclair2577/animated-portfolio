@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useInView, useScroll } from "motion/react";
 import Brain from "@/components/brain";
 import Image from "next/image";
@@ -11,9 +11,19 @@ const AboutPage = () => {
   const containerRef = useRef();
   const skillsRef = useRef();
   const expRef = useRef();
+  const [isMobile, setIsMobile] = useState(false);
   const { scrollYProgress } = useScroll({ container: containerRef });
   const isSkillsInView = useInView(skillsRef);
   const isExpInView = useInView(expRef);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 1024);
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <motion.div
@@ -139,7 +149,7 @@ const AboutPage = () => {
                   </div>
                   {/* Right - Mobile/Tablet: Always show, Desktop: Alternate */}
                   <div className="w-full lg:w-1/3">
-                    {(index % 2 != 0 || window.innerWidth < 1024) && (
+                    {(index % 2 != 0 || isMobile) && (
                       <div>
                         <div className="bg-white rounded-md text-base lg:text-lg font-semibold p-2 dark:bg-black">
                           {exp.title}
