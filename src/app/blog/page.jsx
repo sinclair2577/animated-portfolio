@@ -36,7 +36,7 @@ const BlogPage = () => {
           <div className="flex flex-col items-center w-full px-4 sm:px-6 md:px-8">
             {/* 顶部封面图 */}
             <div className="w-full max-w-[533px] h-auto aspect-video mx-auto">
-              <Image src={mdData.hero_image} width={533} height={300} className="w-full h-auto" />
+              <Image src={mdData.hero_image} width={533} height={300} className="w-full h-auto" alt={mdData.title || "Blog post cover image"} />
             </div>
 
             {/* 标题与作者信息 */}

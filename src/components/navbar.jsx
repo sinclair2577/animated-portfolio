@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import {
   RiGithubFill,
@@ -79,9 +79,7 @@ const Navbar = () => {
 
   // 处理主题变化
   const handleThemeChange = () => {
-    setTheme(prev => {
-      return theme == 'light' ? 'dark' : 'light'
-    })
+    setTheme(theme === 'light' ? 'dark' : 'light')
   }
 
   const handleClickNavLink = () => {

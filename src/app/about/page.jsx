@@ -30,7 +30,7 @@ const AboutPage = () => {
           <div className="flex flex-col gap-12 justify-center">
             <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
             <p className="text-lg">
-              I am Liu Yuhao (Sinclair), a passionate frontend engineer pursuing a master's degree in software engineering at East China Jiaotong University. With expertise in React, Next.js, TypeScript, and modern web technologies, I have delivered enterprise-level solutions for major companies including Shanghai Construction Group and Geely Holding Group. My experience spans from cloud-edge-end collaborative platforms to large-scale digital transformation projects. I excel at performance optimization, building scalable architectures, and implementing innovative solutions that drive business impact.
+              I am Liu Yuhao (Sinclair), a passionate frontend engineer pursuing a master&apos;s degree in software engineering at East China Jiaotong University. With expertise in React, Next.js, TypeScript, and modern web technologies, I have delivered enterprise-level solutions for major companies including Shanghai Construction Group and Geely Holding Group. My experience spans from cloud-edge-end collaborative platforms to large-scale digital transformation projects. I excel at performance optimization, building scalable architectures, and implementing innovative solutions that drive business impact.
             </p>
             <span className="italic">
               Focused on front-end, passionate about innovation, and dedicated
@@ -38,7 +38,7 @@ const AboutPage = () => {
               excellence.
             </span>
             <div className="self-end">
-              <Image src="/sinclair.svg" width={160} height={160} ></Image>
+              <Image src="/sinclair.svg" width={160} height={160} alt="Sinclair profile picture" />
             </div>
           </div>
           {/* Skills */}
