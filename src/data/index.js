@@ -68,15 +68,15 @@ export const skills = [
 
 export const experiences = [
   {
-    title: "Bachelor of Engineering in Software Engineering",
-    desc: "Studied at East China Jiaotong University, focusing on core computer science, software engineering, and practical programming. Built a solid foundation through coursework and academic projects.",
-    date: "2019.09 - 2023.06",
-    company: "East China Jiaotong University",
+    title: "Multi-source Information Fusion Platform",
+    desc: "Developed a cloud-edge-end collaborative safety monitoring platform for coastal city engineering clusters. Integrated IoT, BIM, and GIS data for comprehensive visualization and intelligent analysis.",
+    date: "2024.10 - 2025.06",
+    company: "Shanghai Construction Group",
   },
   {
-    title: "Master of Engineering in Software Engineering",
-    desc: "Currently pursuing a master's degree at East China Jiaotong University, specializing in advanced software engineering and innovative application development.",
-    date: "2023.09 - 2026.06",
-    company: "East China Jiaotong University",
+    title: "Enterprise-level Digital Platform Development",
+    desc: "Participated in developing Geega MES, APS, OTP platforms. Built Monorepo architecture with pnpm, implemented i18n automation, micro-app integration, and performance optimization (LCP +30%).",
+    date: "2025.09 - 2026.02",
+    company: "Geely Holding Group",
   },
 ];

@@ -30,21 +30,7 @@ const AboutPage = () => {
           <div className="flex flex-col gap-12 justify-center">
             <h1 className="font-bold text-2xl">BIOGRAPHY</h1>
             <p className="text-lg">
-              I am Liu Yuhao (Sinclair), a passionate front-end developer with a
-              full-time master&#39s degree in software engineering, specializing
-              in modern front-end technology stacks such as React, Next.js, and
-              TypeScript. I have extensive hands-on experience in responsive
-              design, performance optimization, and user experience design, and
-              am capable of independently handling the entire development
-              process from requirements analysis to project launch. Through
-              multiple personal and team projects, I have gained deep practical
-              knowledge in component-based development, state management, and
-              the use of modern build tools. I am a fast learner, adept at
-              quickly mastering new technologies and applying them to real-world
-              development, with a strong focus on code quality and user
-              experience. I continuously follow the latest trends in the
-              front-end field and am committed to creating better product
-              experiences through technology.
+              I am Liu Yuhao (Sinclair), a passionate frontend engineer pursuing a master's degree in software engineering at East China Jiaotong University. With expertise in React, Next.js, TypeScript, and modern web technologies, I have delivered enterprise-level solutions for major companies including Shanghai Construction Group and Geely Holding Group. My experience spans from cloud-edge-end collaborative platforms to large-scale digital transformation projects. I excel at performance optimization, building scalable architectures, and implementing innovative solutions that drive business impact.
             </p>
             <span className="italic">
               Focused on front-end, passionate about innovation, and dedicated
@@ -125,19 +111,19 @@ const AboutPage = () => {
               ref={expRef}
             >
               {experiences.map((exp, index) => (
-                <div key={exp.title} className="flex justify-between h-96">
+                <div key={exp.title} className="flex justify-between min-h-80 lg:h-96 gap-4">
                   {/* Left */}
-                  <div className="w-1/3">
+                  <div className="hidden lg:block w-1/3">
                     {index % 2 == 0 && (
                       <div>
-                        <div className="bg-white rounded-md text-lg font-semibold p-2 dark:bg-black">
+                        <div className="bg-white rounded-md text-base lg:text-lg font-semibold p-2 dark:bg-black">
                           {exp.title}
                         </div>
-                        <div className="text-md italic py-5">{exp.desc}</div>
-                        <div className="text-red-400 font-semibold py-3">
+                        <div className="text-sm lg:text-base italic py-3 lg:py-5">{exp.desc}</div>
+                        <div className="text-red-400 font-semibold py-2 lg:py-3 text-sm">
                           {exp.date}
                         </div>
-                        <div className="bg-white p-1 rounded font-semibold w-fit dark:bg-black">
+                        <div className="bg-white p-1 rounded font-semibold w-fit text-sm dark:bg-black">
                           {exp.company}
                         </div>
                       </div>
@@ -145,24 +131,24 @@ const AboutPage = () => {
                   </div>
 
                   {/* Center */}
-                  <div className="w-1/6 h-full flex justify-center">
+                  <div className="w-auto lg:w-1/6 h-full flex justify-center">
                     {/* Progress Line */}
                     <div className="w-1 h-full bg-gray-500 relative">
-                      <div className="w-5 h-5 bg-white ring-4 ring-red-400 rounded-full absolute -left-2"></div>
+                      <div className="w-4 h-4 lg:w-5 lg:h-5 bg-white ring-4 ring-red-400 rounded-full absolute -left-1.5 lg:-left-2"></div>
                     </div>
                   </div>
-                  {/* Right */}
-                  <div className="w-1/3">
-                    {index % 2 != 0 && (
+                  {/* Right - Mobile/Tablet: Always show, Desktop: Alternate */}
+                  <div className="w-full lg:w-1/3">
+                    {(index % 2 != 0 || window.innerWidth < 1024) && (
                       <div>
-                        <div className="bg-white rounded-md text-lg font-semibold p-2 dark:bg-black">
+                        <div className="bg-white rounded-md text-base lg:text-lg font-semibold p-2 dark:bg-black">
                           {exp.title}
                         </div>
-                        <div className="text-md italic py-5">{exp.desc}</div>
-                        <div className="text-red-400 font-semibold py-3">
+                        <div className="text-sm lg:text-base italic py-3 lg:py-5">{exp.desc}</div>
+                        <div className="text-red-400 font-semibold py-2 lg:py-3 text-sm">
                           {exp.date}
                         </div>
-                        <div className="bg-white p-1 rounded font-semibold w-fit dark:bg-black">
+                        <div className="bg-white p-1 rounded font-semibold w-fit text-sm dark:bg-black">
                           {exp.company}
                         </div>
                       </div>

@@ -56,7 +56,7 @@ const PortfolioPage = () => {
       transition={{ duration: 1 }}
     >
       <div className="h-[600vh] relative" ref={ref}>
-        <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-8xl text-center">
+        <div className="w-screen h-[calc(100vh-6rem)] flex items-center justify-center text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-center px-4">
           My Works
         </div>
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
@@ -67,14 +67,14 @@ const PortfolioPage = () => {
                 className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color} ${item.darkColor}`}
                 key={item.id}
               >
-                <div className="flex flex-col gap-8 text-white">
-                  <h1 className="text-xl font-bold md:text-4xl lg:text-6xl xl:text-8xl">
+                <div className="flex flex-col gap-6 sm:gap-8 text-white px-4 sm:px-6">
+                  <h1 className="text-lg sm:text-2xl md:text-4xl lg:text-6xl xl:text-8xl font-bold">
                     {item.title}
                   </h1>
-                  <div className="relative w-80 h-56 md:w-96 md:h-64 lg:w-[500px] lg:h-[350px] xl:w-[600px] xl:h-[420px]">
-                    <Image src={item.img} alt="" fill />
+                  <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl xl:max-w-3xl aspect-video">
+                    <Image src={item.img} alt="" fill className="object-cover" />
                   </div>
-                  <p className="w-80 h-[140px] text-ellipsis overflow-hidden md:w-96 lg:w-[500px] lg:text-lg xl:w-[600px]">
+                  <p className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-2xl xl:max-w-3xl text-sm sm:text-base lg:text-lg line-clamp-4 sm:line-clamp-5">
                     {item.desc}
                   </p>
                   <Link href={item.link} className="flex justify-end">
@@ -89,14 +89,14 @@ const PortfolioPage = () => {
         </div>
       </div>
       {/* 尾部 */}
-      <div className="h-screen w-screen gap-16 flex flex-col justify-center items-center text-center">
-        <h1 className="text-8xl">Do you have a project?</h1>
+      <div className="h-screen w-screen gap-8 sm:gap-12 md:gap-16 flex flex-col justify-center items-center text-center px-4">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl">Do you have a project?</h1>
         <div className="relative">
           <motion.svg
             animate={{ rotate: "360deg" }}
             transition={{ duration: 8, repeat: Infinity }}
             viewBox="0 0 300 300"
-            className="w-64 h-64 md:w-[500px] md:h-[500px] "
+            className="w-40 h-40 sm:w-56 sm:h-56 md:w-80 md:h-80 lg:w-[500px] lg:h-[500px]"
           >
             <defs>
               <path
@@ -111,7 +111,7 @@ const PortfolioPage = () => {
             </text>
           </motion.svg>
           <Link
-            className="w-16 h-16 md:w-28 md:h-28 absolute top-0 left-0 right-0 bottom-0 m-auto bg-black text-white rounded-full flex justify-center items-center"
+            className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-28 lg:h-28 absolute top-0 left-0 right-0 bottom-0 m-auto bg-black text-white rounded-full flex justify-center items-center text-xs sm:text-sm md:text-base"
             href="/contact"
           >
             Hire Me

@@ -26,16 +26,13 @@ const Homepage = () => {
         {/* Text container */}
         <div className="h-1/2 lg:h-full lg:w-1/2 flex flex-col gap-8 items-center justify-center">
           {/* Title */}
-          <h1 className="text-4xl font-bold">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold">
             My Name is <strong className="inline-block ">Sinclair</strong>.
           </h1>
           {/* DESC */}
-          <p className="text-gray-500 text-center dark:text-white/80">
+          <p className="text-sm sm:text-base md:text-lg text-gray-500 text-center dark:text-white/80">
             {" "}
-            Welcome to my digital canvas, where innovation and creativity
-            converge. With a keen eye for aesthetics and a mastery of code, my
-            portfolio showcases a diverse collection of projects that reflect my
-            commitment to excellence.
+            Frontend Developer & Software Engineer. Specializing in React, Next.js, and TypeScript. Passionate about building high-performance web applications and creating exceptional user experiences through innovative technology solutions.
           </p>
           {/* Buttons */}
           <div className="flex gap-4">
