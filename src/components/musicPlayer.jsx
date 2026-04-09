@@ -6,14 +6,12 @@ import {
   FiPauseCircle,
   FiArrowRight,
   FiArrowLeft,
-  FiMusic,
-  FiVolume,
-  FiVolume1,
   FiVolume2,
   FiVolumeX
 } from "react-icons/fi";
 import { Slider } from "@/components/ui/slider";
 import { Skeleton } from "@/components/ui/skeleton"
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { musics } from '@/data'
 import { timeFormat } from '@/lib/utils'
@@ -25,7 +23,6 @@ const MusicPlayer = ({ isHovered }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentPlayTime, setCurrentPlayTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [volume, setVolume] = useState(0.8);
   // 添加加载状态
   const [isLoaded, setIsLoaded] = useState(false);
   const [isMuted, setIsMuted] = useState(false)
@@ -34,13 +31,12 @@ const MusicPlayer = ({ isHovered }) => {
 
   useEffect(() => {
     const audio = audioRef.current
-    audio.volume = volume;
     setIsLoaded(false);
     audio.addEventListener('play', () => {
       setIsLoaded(true);
       setIsPlaying(true)
     })
-  }, [currentMusicIdx, volume]);
+  }, [currentMusicIdx]);
 
 
   const handlePlayMusic = () => {
@@ -126,11 +122,13 @@ const MusicPlayer = ({ isHovered }) => {
               {/* 头部区域 */}
               <div className="relative flex h-[7.5rem] w-full justify-between">
                 {/* 图片 */}
-                <motion.div initial={{ transform: 'translateX(-20px)' }} className="h-[100px] w-[100px] rounded-md shadow-md shadow-gray-700 dark:shadow-black/40 cursor-pointer" onClick={handlePlayMusic}>
-                  {isLoaded ? <img
-                    className="h-full w-full rounded-md bg-center object-cover"
+                <motion.div initial={{ transform: 'translateX(-20px)' }} className="h-[100px] w-[100px] rounded-md shadow-md shadow-gray-700 dark:shadow-black/40 cursor-pointer relative overflow-hidden" onClick={handlePlayMusic}>
+                  {isLoaded ? <Image
+                    className="rounded-md object-cover"
                     src={musics[currentMusicIdx].coverUrl}
-                  ></img> : <Skeleton className='w-full h-full rounded-md' />}
+                    alt={musics[currentMusicIdx].title}
+                    fill
+                  /> : <Skeleton className='w-full h-full rounded-md' />}
 
                 </motion.div>
 

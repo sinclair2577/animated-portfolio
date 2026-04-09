@@ -1,6 +1,5 @@
 
 import "@google/model-viewer";
-import { useRef } from "react";
 
 const Model = () => {
   return (

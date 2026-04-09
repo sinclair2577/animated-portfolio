@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 import {
   RiGithubFill,
@@ -79,9 +79,7 @@ const Navbar = () => {
 
   // 处理主题变化
   const handleThemeChange = () => {
-    setTheme(prev => {
-      return theme == 'light' ? 'dark' : 'light'
-    })
+    setTheme(theme === 'light' ? 'dark' : 'light')
   }
 
   const handleClickNavLink = () => {
@@ -100,31 +98,31 @@ const Navbar = () => {
       <div className="md:hidden lg:flex w-1/4 justify-center">
         <Link
           href="/"
-          className="bg-black dark:bg-white text-sm font-semibold rounded-md p-1 flex justify-center items-center"
+          className="bg-black dark:bg-white text-xs sm:text-sm font-semibold rounded-md p-1 flex justify-center items-center gap-1"
         >
-          <span className="text-white mr-1 dark:text-black">Sinclair</span>
-          <span className="w-12 h-8 rounded bg-white text-black dark:bg-black dark:text-white flex justify-center items-center">
+          <span className="text-white dark:text-black hidden sm:inline">Sinclair</span>
+          <span className="w-8 sm:w-12 h-6 sm:h-8 rounded bg-white text-black dark:bg-black dark:text-white flex justify-center items-center text-xs">
             .site
           </span>
         </Link>
       </div>
 
       {/* Social */}
-      <div className="hidden md:flex md:justify-end items-center gap-4 w-1/3">
+      <div className="hidden md:flex md:justify-end items-center gap-2 md:gap-3 lg:gap-4 w-1/3">
         <Link href="https://github.com/sinclair2577">
-          <RiGithubFill className="size-12" />
+          <RiGithubFill className="size-6 md:size-8 lg:size-10 xl:size-12" />
         </Link>
         <Link href="/">
-          <RiWechatFill />
+          <RiWechatFill className="size-6 md:size-8 lg:size-10 xl:size-12" />
         </Link>
         <Link href="/">
-          <RiQqFill />
+          <RiQqFill className="size-6 md:size-8 lg:size-10 xl:size-12" />
         </Link>
         <Link href="/">
-          <RiFacebookBoxFill />
+          <RiFacebookBoxFill className="size-6 md:size-8 lg:size-10 xl:size-12" />
         </Link>
         <Link href="https://x.com/liyho197936">
-          <RiTwitterFill />
+          <RiTwitterFill className="size-6 md:size-8 lg:size-10 xl:size-12" />
         </Link>
 
       </div>
