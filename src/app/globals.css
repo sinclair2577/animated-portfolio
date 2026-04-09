@@ -66,7 +66,7 @@
     @apply bg-background text-foreground;
   }
   html {
-    @apply overflow-x-hidden;
+    @apply overflow-x-hidden scroll-smooth;
   }
 }
 
@@ -80,5 +80,49 @@
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
+  }
+
+  /* Awwwards 风格的文字渐变效果 */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600;
+  }
+  .dark .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400;
+  }
+
+  /* 玻璃拟态效果 */
+  .glass {
+    @apply backdrop-blur-md bg-white/10 border border-white/20;
+  }
+  .dark .glass {
+    @apply backdrop-blur-md bg-black/20 border border-white/10;
+  }
+
+  /* 悬停卡片效果 */
+  .card-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+  .card-hover:hover {
+    @apply -translate-y-2 shadow-2xl;
+  }
+
+  /* 技能标签悬停效果 */
+  .skill-tag {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+  .skill-tag::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 transition-opacity duration-300;
+  }
+  .skill-tag:hover::before {
+    @apply opacity-100;
+  }
+
+  /* 分割线动画 */
+  .divider-animated {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-gray-400 to-transparent;
+  }
+  .dark .divider-animated {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-gray-600 to-transparent;
   }
 }
