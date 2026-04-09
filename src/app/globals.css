@@ -68,6 +68,21 @@
   html {
     @apply overflow-x-hidden scroll-smooth;
   }
+
+  /* 自定义光标 - 仅在桌面端隐藏原生光标 */
+  @media (min-width: 768px) {
+    body.cursor-custom {
+      cursor: none !important;
+    }
+    body.cursor-custom a,
+    body.cursor-custom button,
+    body.cursor-custom [role="button"],
+    body.cursor-custom input,
+    body.cursor-custom textarea,
+    body.cursor-custom select {
+      cursor: none !important;
+    }
+  }
 }
 
 @layer utilities {

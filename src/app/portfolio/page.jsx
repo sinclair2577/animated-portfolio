@@ -77,7 +77,7 @@ const PortfolioPage = () => {
         {/* Horizontal Scroll Section */}
         <div className="sticky top-0 flex h-screen items-center overflow-hidden">
           <motion.div style={{ x }} className="flex">
-            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300 dark:from-purple-900/80 dark:to-red-900/80" />
+            <div className="h-screen w-screen flex items-center justify-center bg-gradient-to-r " />
             {portfolios.map((item) => (
               <div
                 className={`h-screen w-screen flex items-center justify-center bg-gradient-to-r ${item.color} ${item.darkColor}`}
@@ -122,9 +122,9 @@ const PortfolioPage = () => {
                     {item.desc}
                   </p>
 
-                  <Link href={item.link} className="flex justify-end">
+                  <Link href={`/portfolio/${item.slug}`} className="flex justify-end">
                     <button className="group/btn flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 md:px-8 md:py-4 bg-white text-gray-800 dark:bg-gray-900 dark:text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                      <span className="text-sm md:text-base">View Project</span>
+                      <span className="text-sm md:text-base">View Details</span>
                       <motion.span
                         className="inline-block"
                         whileHover={{ x: 5 }}
