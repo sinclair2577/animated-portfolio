@@ -6,7 +6,6 @@ const CustomCursor = () => {
   const cursorRef = useRef(null);
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
 
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
@@ -22,11 +21,6 @@ const CustomCursor = () => {
     const handleMouseMove = (e) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
-      setIsVisible(true);
-    };
-
-    const handleMouseLeave = () => {
-      setIsVisible(false);
     };
 
     const handleMouseDown = () => {
@@ -58,7 +52,6 @@ const CustomCursor = () => {
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("mousedown", handleMouseDown);
     window.addEventListener("mouseup", handleMouseUp);
 
@@ -80,7 +73,6 @@ const CustomCursor = () => {
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseleave", handleMouseLeave);
       window.removeEventListener("mousedown", handleMouseDown);
       window.removeEventListener("mouseup", handleMouseUp);
       observer.disconnect();
